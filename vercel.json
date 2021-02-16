@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "github": {
+        "silent": true
+    },
+    "builds": [
+        {
+            "src": "**",
+            "use": "@now/static"
+        },
+        {
+            "src": "subconverter/subconverter.exe",
+            "use": "now-static-bin",
+            "config": {
+                "port": 25500,
+                "timeout": 1500,
+                "includeFiles": [
+                    "subconverter/**"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/",
+            "dest": "index.html"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "subconverter/subconverter.exe"
+        }
+    ]
+}
