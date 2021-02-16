@@ -1,13 +1,7 @@
 {
-    "version": 2,
-    "github": {
-        "silent": true
-    },
+    "name": "subc",
+    "version": 2, 
     "builds": [
-        {
-            "src": "**",
-            "use": "@now/static"
-        },
         {
             "src": "subconverter/subconverter.exe",
             "use": "now-static-bin",
@@ -21,13 +15,6 @@
         }
     ],
     "routes": [
-        {
-            "src": "/",
-            "dest": "index.html"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "subconverter/subconverter.exe"
-        }
+        {"src": "/(.*)", "dest": "subconverter/subconverter.exe"}
     ]
 }
